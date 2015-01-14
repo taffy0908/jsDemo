@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test window load</title>
+	<style>
+		img {
+			width: 200px;
+			height: 200px;
+		}
+		.loading {
+			display: none;
+			background: url('../images/loading.gif') no-repeat;
+			background-position: 50%;
+			text-align: center;
+			height: 200px;
+		}
+		.load .loading{
+			display: block;
+		}
+		.load img {
+			display: none;
+		}
+	</style>
+
+</head>
+<body class="load">
+	<div class="loading"></div>
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="1">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="2">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+	<img src="https://ununsplash.imgix.net/photo-1417870839255-a23faa90c6b0?q=75&fm=jpg&s=96d46061e7ecc8eb2ef0e9016d1eeb99" alt="3">
+
+	<script src="../js/zepto.js"></script>
+	<script src="../js/fx.js"></script>
+	<script>
+	$(function() {
+		var $window = $(window);
+
+		$window.on('load', function() {
+			$(document.body).removeClass('load');
+		});
+	});
+
+	</script>
+	
+</body>
+</html>

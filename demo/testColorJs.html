@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test jquery.color.js</title>
+	<style>
+		.red {
+			color: red;
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div class="red">red</div>
+	
+	<script src="../js/jquery-1.11.2.js"></script>
+	
+	<script>
+	$(function() {
+
+		$.fn.extend({
+			'color': function(value) {
+				if(value) {
+					return this.css('color', value);
+				} else {
+					return this.css('color');
+				}
+			}
+		});
+		var $div = $('.red');
+		console.log($div.color());
+
+		setTimeout(function() {
+			$div.color('blue');
+		}, 2000);
+	});
+
+	</script>
+</body>
+</html>
