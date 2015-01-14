@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>load progress</title>
+</head>
+<body>
+
+	<div class="preload_shadow" style="font-family: 'Microsoft YaHei'; font-size: 16px; color: rgb(255, 255, 255); width: 100%; height: 100%; position: absolute; z-index: 9999; left: 0px; top: 0px; background: url(http://www.wowoyoo.com/themes/default/yrz_phone/images/loading.gif) 50% 50% no-repeat rgb(0, 0, 0);">
+		<div class="preload_bar_border" style="width: 120px; height: 17px; border: 1px solid rgb(255, 255, 255); overflow: hidden; position: absolute; left: 100px; top: 292.5px;">
+			<div class="preload_bar" style="width: 0px; height: 17px; position: absolute; left: 0px; top: 0px; background-color: rgb(22, 97, 168);">
+				
+			</div>
+		</div>
+		<div class="preload_font" style="position: absolute; left: 130px; top: 263px;">
+			载入中...
+		</div>
+		<div class="preload_percent" style="position: absolute; left: 148px; top: 316px;">
+			0%
+		</div>
+	</div>
+	
+	<script type="text/javascript" src="../js/zepto.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var file_preload = [
+					'../js/fx.js'
+				],
+				preload_filetotal = 0,
+				preload_success = 0,
+				preload_callback,
+				preload_noticeError = true;
+
+			function loadFile(files, callback) {
+				preload_filetotal = files.length;
+				$.each(files, function(index, path) {
+					loadingFile(path);
+				});
+				if(callback) {
+					preload_callback = callback;
+				}
+			}
+
+			function loadingFile(path) {
+				$.get(path, function(data,status){
+					preload_error(path,status);
+					preload_success++;
+					preload_progress();
+				});
+			}
+
+			function preload_progress(){
+				preload_percentNum=Math.round((preload_success / preload_filetotal) * 100);
+				$(".preload_percent").text(preload_percentNum+"%");
+				$(".preload_bar").width(preload_percentNum+"%");
+				if(preload_percentNum == 100){
+					$(".preload_shadow").animate('hide', 1000, function(){
+						$(this).remove();
+						if(preload_callback){
+							preload_callback();
+						}
+					});
+					
+				}
+			}
+
+			function preload_error(path,status){
+				if(preload_noticeError){
+				switch(status){
+					case "error":
+						alert("加载文件："+path+"出错！错误类型：error");
+						break;
+					case "timeout":
+						alert("加载文件："+path+"超时！错误类型：timeout");
+						break;
+					case "parsererror":
+						alert("加载文件："+path+"分析器错误！错误类型：parsererror");
+					}
+				}
+			}
+
+
+			loadFile(file_preload, function() {
+				$(document.body).append('<p class="indro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab atque eos itaque fugiat magnam impedit nobis assumenda pariatur voluptas deserunt, praesentium, accusantium sed error suscipit quod quos earum quas cum.</p>');
+				$('.indro').animate({
+					opacity: 0,
+					'background-color': 'red'
+				}, 2000, function() {
+					$(this).animate({
+						opacity: 1,
+						'color': 'orange',
+						'background-color': 'white'
+					}, 2000);
+				})
+			});
+		});
+
+	</script>
+</body>
+</html>
